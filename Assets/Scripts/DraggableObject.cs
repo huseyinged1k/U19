@@ -24,6 +24,7 @@ public class DraggableObject : MonoBehaviour
         if (isDragging)
         {
             player.isTelekinetic = isDragging;
+            player.Mana -= 1;
             Vector2 mousePos = GetMouseWorldPos();
             transform.position = new Vector3(mousePos.x + offset.x, mousePos.y + offset.y, transform.position.z);
         }
