@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Stats")] 
+    public float Health;
+    public float Mana;
+
+    [Header("Animation States")] 
+    public bool isDead;
+    
     [Header("Abilities")]
     public bool isTelekinetic;
     
@@ -35,6 +42,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) transform.localScale *= shrinkScale;
         
         if (Input.GetKeyDown(KeyCode.E)) transform.localScale *= growScale;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (Health > 0) Health -= damage;
+        else isDead = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
