@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public bool isTelekinetic;
 
     public bool gameOver;
+
+    [SerializeField] private float knockBackRate = 10f;
     [SerializeField] private float moveSpeed = 5f;  
     [SerializeField] private float jumpForce = 10f; 
     [SerializeField] private float shrinkScale = 0.5f;  
@@ -31,7 +33,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (isDead || isTelekinetic) return;
+        if (isDead || isTelekinetic || isHurt) return;
 
         float moveInput = Input.GetAxisRaw("Horizontal");
         Vector2 moveVelocity = rb.velocity;
@@ -54,6 +56,11 @@ public class Player : MonoBehaviour
             Health -= damage;
             isHurt = true;
             isTelekinetic = false;
+            
+            if(gameObject.transform.rotation.y == 0) rb.AddForce(Vector2.left * jumpForce * knockBackRate, ForceMode2D.Impulse);
+            else rb.AddForce(Vector2.right * jumpForce * knockBackRate, ForceMode2D.Impulse);
+            
+            rb.AddForce(Vector2.up * jumpForce / 2, ForceMode2D.Impulse);
         }
         else isDead = true;
     }

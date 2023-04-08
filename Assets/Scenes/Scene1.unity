@@ -3460,6 +3460,10 @@ PrefabInstance:
       propertyPath: isDead
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4511466384885600363, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: knockBackRate
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4521950761523674988, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: m_SortingLayer
       value: 3
