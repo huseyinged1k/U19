@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform player;
     public float followSpeed = 0.1f;
-    public float camRange;    
+    public Vector3 camRange;    
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
