@@ -11,7 +11,7 @@ public class PlayerCollisionController : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collider2D collision)
     {
         if(collision.tag == "coin")
         {
