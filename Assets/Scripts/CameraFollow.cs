@@ -6,17 +6,17 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform player;
     public float followSpeed = 0.1f;
-    public Vector3 camRange;    
+    public Vector3 offset;    
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
-        camRange = transform.position - player.position;
+        
     }
 
     
     void LateUpdate()
     {
-        Vector3 targetLocation = player.position + camRange;
+        Vector3 targetLocation = player.position + offset;
         transform.position = Vector3.Lerp(transform.position, targetLocation, followSpeed);
     }
 }
