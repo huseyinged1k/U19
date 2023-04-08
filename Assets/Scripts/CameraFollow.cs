@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float camRange;    
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindWithTag("Player").transform;
         camRange = transform.position - player.position;
     }
 
