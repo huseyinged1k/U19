@@ -31,6 +31,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        
+        if (isDead)
+        {
+            //TODO: olme animasyonuna gecis yapilacak.
+            return;
+        }
+        
         float moveInput = Input.GetAxisRaw("Horizontal");
         Vector2 moveVelocity = rb.velocity;
         moveVelocity.x = moveInput * moveSpeed;
