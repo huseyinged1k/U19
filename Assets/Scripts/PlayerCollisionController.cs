@@ -15,7 +15,7 @@ public class PlayerCollisionController : MonoBehaviour
         else if(collision.tag == "enemy")
         {
             heart--;
-
+           
         }
     }
 }
