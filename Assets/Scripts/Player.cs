@@ -7,22 +7,22 @@ public class Player : MonoBehaviour
 {
     [Header("Stats")] 
     public float Health;
-    public float Mana;
 
     [Header("Animation States")] 
     public bool isDead;
+    public bool isHurt;
     
     [Header("Abilities")]
     public bool isTelekinetic;
-    
-    
+
+    public bool gameOver;
     [SerializeField] private float moveSpeed = 5f;  
     [SerializeField] private float jumpForce = 10f; 
     [SerializeField] private float shrinkScale = 0.5f;  
     [SerializeField] private float growScale = 2f; 
 
-    public Rigidbody2D rb; 
-    private bool isGrounded = false; 
+    [HideInInspector] public Rigidbody2D rb; 
+    [HideInInspector] public bool isGrounded = false; 
 
     private void Awake()
     {
@@ -31,13 +31,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        
-        if (isDead)
-        {
-            //TODO: olme animasyonuna gecis yapilacak.
-            return;
-        }
-        
+        if (isDead || isTelekinetic) return;
+
         float moveInput = Input.GetAxisRaw("Horizontal");
         Vector2 moveVelocity = rb.velocity;
         moveVelocity.x = moveInput * moveSpeed;
@@ -54,7 +49,12 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (Health > 0) Health -= damage;
+        if (Health > 0)
+        {
+            Health -= damage;
+            isHurt = true;
+            isTelekinetic = false;
+        }
         else isDead = true;
     }
 

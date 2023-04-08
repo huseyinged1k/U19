@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class PlayerCollisionController : MonoBehaviour
@@ -19,7 +20,12 @@ public class PlayerCollisionController : MonoBehaviour
         }
         else if(collision.gameObject.tag == "enemy")
         {
-            player.Health -= 1;
+            player.TakeDamage(10);
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy") player.isHurt = false;
     }
 }

@@ -15,7 +15,6 @@ public class CameraFollow : MonoBehaviour
         followSpeed = 0.01f;
     }
 
-    
     void LateUpdate()
     {
         if (player.GetComponent<Player>().rb.velocity.x > 1) offset.x = camShiftX;
