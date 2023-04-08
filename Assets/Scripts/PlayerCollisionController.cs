@@ -13,11 +13,11 @@ public class PlayerCollisionController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collider2D collision)
     {
-        if(collision.tag == "coin")
+        if(collision.gameObject.tag == "coin")
         {
             score += 100;
         }
-        else if(collision.tag == "enemy")
+        else if(collision.gameObject.tag == "enemy")
         {
             player.Health -= 1;
         }
