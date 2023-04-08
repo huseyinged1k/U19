@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
 {
     [Header("Abilities")]
     public bool isTelekinetic;
-
+    
+    
     [SerializeField] private float moveSpeed = 5f;  
     [SerializeField] private float jumpForce = 10f; 
     [SerializeField] private float shrinkScale = 0.5f;  
