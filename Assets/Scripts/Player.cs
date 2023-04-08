@@ -42,8 +42,8 @@ public class Player : MonoBehaviour
         Vector2 moveVelocity = rb.velocity;
         moveVelocity.x = moveInput * moveSpeed;
         rb.velocity = moveVelocity;
-        if (rb.velocity.x >= 0) gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        else gameObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        if (rb.velocity.x >= 0 && moveInput != 0) gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        else if(moveInput != 0) gameObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         
         if (Input.GetButtonDown("Jump") && isGrounded) rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
