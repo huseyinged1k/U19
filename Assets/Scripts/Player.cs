@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float shrinkScale = 0.5f;  
     [SerializeField] private float growScale = 2f; 
 
-    private Rigidbody2D rb; 
+    public Rigidbody2D rb; 
     private bool isGrounded = false; 
 
     private void Awake()
@@ -41,9 +41,10 @@ public class Player : MonoBehaviour
         float moveInput = Input.GetAxisRaw("Horizontal");
         Vector2 moveVelocity = rb.velocity;
         moveVelocity.x = moveInput * moveSpeed;
-
         rb.velocity = moveVelocity;
-
+        if (rb.velocity.x >= 0) gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        else gameObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        
         if (Input.GetButtonDown("Jump") && isGrounded) rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
         if (Input.GetKeyDown(KeyCode.Q)) transform.localScale *= shrinkScale;
@@ -59,11 +60,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground")) isGrounded = true;
+        if (collision.gameObject.CompareTag("ground")) isGrounded = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground")) isGrounded = false;
+        if (collision.gameObject.CompareTag("ground")) isGrounded = false;
     }
 }
