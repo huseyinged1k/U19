@@ -1,10 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerCollisionController : MonoBehaviour
 {
-    int score=0, heart=3;
+    int score=0;
+    private Player player;
+
+    private void Start()
+    {
+        player = GetComponent<Player>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,8 +19,7 @@ public class PlayerCollisionController : MonoBehaviour
         }
         else if(collision.tag == "enemy")
         {
-            heart--;
-
+            player.Health -= 1;
         }
     }
 }
