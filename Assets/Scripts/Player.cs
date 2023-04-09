@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     
     [Header("Abilities")]
     public bool isTelekinetic;
+    public bool isShrink;
+    public bool isGrow;
 
     public bool gameOver;
 
@@ -44,9 +46,17 @@ public class Player : MonoBehaviour
         
         if (Input.GetButtonDown("Jump") && isGrounded) rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-        if (Input.GetKeyDown(KeyCode.Q)) transform.localScale *= shrinkScale;
-        
-        if (Input.GetKeyDown(KeyCode.E)) transform.localScale *= growScale;
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            transform.localScale *= shrinkScale;
+            isShrink = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.localScale *= growScale;
+            isGrow = true;
+        }
     }
 
     public void TakeDamage(float damage)
