@@ -20,17 +20,23 @@ public class PlayerEffects : MonoBehaviour
     private GameObject _shrinkEffect;
     private GameObject _growEffect;
     private SoundEffects soundEffects;
+    private Animator anim;
     
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         soundEffects = player.GetComponent<SoundEffects>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         //TODO: gec calisiyor bakilacak
-        if(player.rb.velocity.y >= 0) soundEffects.PlaySound("jump");
+        if (anim.GetBool("isJump"))
+        {
+            soundEffects.PlaySound("jump");
+            return;
+        }
         
         if (player.isTelekinetic && !player.gameOver)
         {

@@ -24,6 +24,7 @@ public class SoundEffects : MonoBehaviour
         {
             audioSource.clip = telekineticSound;
             audioSource.loop = true;
+            audioSource.volume = 1f;
             audioSource.Play();
             isPlaying = true;
         } 
@@ -31,19 +32,25 @@ public class SoundEffects : MonoBehaviour
         {
             audioSource.clip = shrinkSound;
             audioSource.loop = false;
+            audioSource.volume = 1f;
             audioSource.Play();
+            isPlaying = true;
         } 
         else if (soundName == "grow" && !isPlaying)
         {
             audioSource.clip = growSound;
             audioSource.loop = false;
+            audioSource.volume = 1f;
             audioSource.Play();
+            isPlaying = true;
         } 
         else if (soundName == "jump" && !isPlaying)
         {
             audioSource.clip = jumpSound;
             audioSource.loop = false;
+            audioSource.volume = .5f;
             audioSource.Play();
+            isPlaying = true;
         }
     }
 
