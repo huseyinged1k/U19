@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisionController : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class PlayerCollisionController : MonoBehaviour
         else if(collision.gameObject.tag == "enemy")
         {
             player.TakeDamage(10);
+        }
+        else if (collision.gameObject.tag == "End")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
