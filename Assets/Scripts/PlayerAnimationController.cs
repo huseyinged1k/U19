@@ -30,7 +30,7 @@ public class PlayerAnimationController : MonoBehaviour
         }
         else anim.SetBool("isLookUp", false);
         
-        if(player.rb.velocity.y != 0) anim.SetBool("isJump", true);
+        if(!player.isGrounded && player.rb.velocity.y != 0) anim.SetBool("isJump", true);
         else anim.SetBool("isJump", false);
         
         if (player.rb.velocity.x != 0 && player.isGrounded) anim.SetBool("isRun", true);
