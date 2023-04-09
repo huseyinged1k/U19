@@ -1,6 +1,5 @@
-# U19 - KULLANILAN ASSETLER VE LINKLERI
+# U19 GAMEJAM PROJESI - KULLANILAN ASSETLER VE LINKLERI
 # Tum assetler ucretsizdir.
-#
 # https://assetstore.unity.com/packages/vfx/particles/spells/fx-magic-circle-free-23978
 # https://assetstore.unity.com/packages/2d/characters/cute-2d-girl-wizard-155796
 # https://mixkit.co/free-sound-effects/jump/ (player jumping in a video game)
