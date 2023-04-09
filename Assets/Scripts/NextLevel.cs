@@ -7,9 +7,9 @@ public class NextLevel : MonoBehaviour
     //public LevelFading levelManager;
 
     public GameObject winScreen;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             //levelManager.FadeToNextLevel();
             winScreen.SetActive(true);
