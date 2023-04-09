@@ -23,6 +23,7 @@ public class DraggableObject : MonoBehaviour
     {
         if (isDragging)
         {
+            player.rb.velocity = new Vector2(0f, 0f);
             player.isTelekinetic = isDragging;
             Vector2 mousePos = GetMouseWorldPos();
             transform.position = new Vector3(mousePos.x + offset.x, mousePos.y + offset.y, transform.position.z);

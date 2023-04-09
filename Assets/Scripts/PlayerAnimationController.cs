@@ -26,6 +26,8 @@ public class PlayerAnimationController : MonoBehaviour
         if (player.isTelekinetic && !player.isHurt)
         {
             anim.SetBool("isLookUp", true);
+            anim.SetBool("isRun", false);
+            anim.SetBool("isJump", false);
             return;
         }
         else anim.SetBool("isLookUp", false);
