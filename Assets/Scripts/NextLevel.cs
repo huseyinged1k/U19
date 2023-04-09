@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
-    public LevelFading levelManager;
-    
+    //public LevelFading levelManager;
+
+    public GameObject winScreen;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            levelManager.FadeToNextLevel();
+            //levelManager.FadeToNextLevel();
+            winScreen.SetActive(true);
         }
     }
 }
